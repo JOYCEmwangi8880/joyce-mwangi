@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react"
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter, MessageCircle } from "lucide-react"
 import Link from "next/link"
 
 export default function Contact() {
@@ -38,16 +38,54 @@ export default function Contact() {
 
         {/* Social Links */}
         <div className="flex justify-center gap-12 mb-16">
-          <Link href="#" className="text-slate-400 hover:text-cyan-400 transition">
-            <Github size={28} />
-          </Link>
-          <Link href="#" className="text-slate-400 hover:text-cyan-400 transition">
-            <Linkedin size={28} />
-          </Link>
-          <Link href="#" className="text-slate-400 hover:text-cyan-400 transition">
-            <Twitter size={28} />
-          </Link>
-        </div>
+  <a
+    href="https://github.com/JOYCEmwangi8880"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-slate-400 hover:text-cyan-400 transition"
+    aria-label="GitHub"
+  >
+    <Github size={28} />
+  </a>
+
+  <a
+    href="https://www.linkedin.com/in/joyce-mwangi-470019235"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-slate-400 hover:text-cyan-400 transition"
+    aria-label="LinkedIn"
+  >
+    <Linkedin size={28} />
+  </a>
+
+  <a
+    href="https://x.com/joycyie"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-slate-400 hover:text-cyan-400 transition"
+    aria-label="Twitter / X"
+  >
+    <Twitter size={28} />
+  </a>
+
+  <a
+    href="https://discord.com/users/joycie8151"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-slate-400 hover:text-cyan-400 transition"
+    aria-label="Discord"
+  >
+    <MessageCircle size={28} />
+  </a>
+
+  <a
+    href="mailto:joycewanguim2020@gmail.com"
+    className="text-slate-400 hover:text-cyan-400 transition"
+    aria-label="Email"
+  >
+    <Mail size={28} />
+  </a>
+</div>
 
         <div className="pt-8 border-t border-slate-800 text-center">
           <p className="text-slate-500 text-sm">
