@@ -38,14 +38,14 @@ export default function Hero() {
           <div>
             <div className="mb-8">
               <p className="text-cyan-400 text-sm uppercase tracking-wide font-medium mb-4">
-                Welcome
+                Hello   I'm
               </p>
               <h1 className="text-6xl md:text-7xl font-bold text-white mb-4">
                 Joyce Mwangi
               </h1>
-              <p className="text-lg text-slate-300 mb-3">
+              {/* <p className="text-lg text-slate-300 mb-3">
                 Web Developer, Digital Marketer & AI Innovator
-              </p>
+              </p> */}
               <p className="text-slate-400 text-base leading-relaxed">
                 I build digital solutions that blend technology with strategy. I'm skilled in:{" "}
                 <span className="text-cyan-400 font-semibold">{currentWord}</span>
@@ -53,9 +53,13 @@ export default function Hero() {
               </p>
             </div>
 
-            <p className="text-slate-400 mb-8 leading-relaxed">
-              From web development and data-driven marketing to AI innovations, I create solutions that drive real business impact.
-            </p>
+             <p className="text-slate-400 text-base leading-relaxed">
+      I create practical digital solutions by combining technology, creativity, and strategy.
+    </p>
+
+    <p className="text-slate-400 mb-8 leading-relaxed">
+      My work focuses on building reliable, user-centered products that solve real problems.
+    </p>
 
             <div className="flex gap-4 mb-8">
               <a href="mailto:joycewanguim2020@gmail.com">
@@ -90,8 +94,9 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column - Image and CV Circle */}
-          <div className="relative flex justify-center">
+          {/* Right Column - Image with Social Links */}
+          <div className="flex gap-12 items-center justify-center">
+            {/* Image and CV Circle */}
             <div className="relative w-full max-w-md">
               <div className="aspect-square rounded-lg overflow-hidden bg-slate-800 border border-slate-700 shadow-2xl">
                 <img
@@ -138,19 +143,19 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Social Links Desktop */}
-            <div className="hidden md:flex gap-6 mt-12">
+            {/* Social Links Desktop - Vertical on the right */}
+            <div className="hidden md:flex flex-col gap-8">
               <a href="https://github.com/JOYCEmwangi8880" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition">
-                <Github size={20} />
+                <Github size={24} />
               </a>
               <a href="https://www.linkedin.com/in/joyce-mwangi-470019235" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition">
-                <Linkedin size={20} />
+                <Linkedin size={24} />
               </a>
               <a href="https://x.com/joycyie" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition">
-                <Twitter size={20} />
+                <Twitter size={24} />
               </a>
               <a href="mailto:joycewanguim2020@gmail.com" className="text-slate-400 hover:text-cyan-400 transition">
-                <Mail size={20} />
+                <Mail size={24} />
               </a>
             </div>
           </div>
