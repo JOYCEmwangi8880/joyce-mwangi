@@ -14,19 +14,19 @@ export default function About() {
           <div className="flex gap-4 relative">
             <div className="flex-1 space-y-4">
               <img
-                src="images/prof.jpeg"
+                src="images/img.jpg"
                 alt="About 1"
                 className="w-full h-80 object-cover rounded-lg"
               />
             </div>
             <div className="flex-1 space-y-4 pt-8">
               <img
-                src="/images/img.jpg"
+                src="/images/prof.jpeg"
                 alt="About 2"
                 className="w-full h-64 object-cover rounded-lg"
               />
               <img
-                src="/images/portfolio.jpg"
+                src="/images/ai.jpg"
                 alt="About 3"
                 className="w-full h-64 object-cover rounded-lg"
               />
