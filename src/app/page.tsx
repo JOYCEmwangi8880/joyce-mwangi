@@ -1,7 +1,6 @@
 import Hero from "@/components/hero"
-import Features from "@/components/features"
+import Feature from "@/components/feature"
 import About from "@/components/about"
-import Portfolio from "@/components/portfolio"
 import Skills from "@/components/skills"
 import Service from "@/components/service"
 import Contact from "@/components/contact"
@@ -13,7 +12,7 @@ export default function Home() {
       <Navigation />
       <main className="bg-slate-950 text-slate-100">
         <Hero />
-        <Features />
+        <Feature />
         <About />
         <Service />
         <Skills />
