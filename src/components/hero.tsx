@@ -47,7 +47,8 @@ export default function Hero() {
                 Web Developer, Digital Marketer & AI Innovator
               </p> */}
               <p className="text-slate-400 text-base leading-relaxed">
-                I build digital solutions that blend technology with strategy. I'm skilled in:{" "}
+                Crafting solutions at the intersection of technology and strategy
+                <br></br>:{" "}
                 <span className="text-cyan-400 font-semibold">{currentWord}</span>
                 <span className="text-cyan-400 animate-blink">|</span>
               </p>
