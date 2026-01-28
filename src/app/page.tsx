@@ -1,10 +1,12 @@
 import Hero from "@/components/hero"
-import Feature from "@/components/feature"
+// import Features from "@/components/features"
 import About from "@/components/about"
+// import Portfolio from "@/components/portfolio"
 import Skills from "@/components/skills"
 import Service from "@/components/service"
 import Contact from "@/components/contact"
 import Navigation from "@/components/navigation"
+import Footer from "@/components/footer"
 
 export default function Home() {
   return (
@@ -12,12 +14,14 @@ export default function Home() {
       <Navigation />
       <main className="bg-slate-950 text-slate-100">
         <Hero />
-        <Feature />
+        {/* <Features /> */}
         <About />
         <Service />
         <Skills />
+        {/* <Portfolio /> */}
         <Contact />
       </main>
+      <Footer />
     </>
   )
 }
