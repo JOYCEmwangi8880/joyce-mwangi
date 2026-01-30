@@ -69,7 +69,7 @@ export default function Contact() {
               />
               <input
                 type="email"
-                placeholder="Your Email"
+                placeholder="Email Address"
                 className="px-4 py-3 bg-slate-800/50 border border-slate-700 rounded text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none transition"
               />
             </div>
@@ -77,18 +77,18 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 gap-4">
               <input
                 type="tel"
-                placeholder="Your Phone"
+                placeholder="Phone Number"
                 className="px-4 py-3 bg-slate-800/50 border border-slate-700 rounded text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none transition"
               />
               <input
                 type="text"
-                placeholder="Your Subject"
+                placeholder="Subject "
                 className="px-4 py-3 bg-slate-800/50 border border-slate-700 rounded text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none transition"
               />
             </div>
 
             <textarea
-              placeholder="Start writing message here"
+              placeholder="Write your message "
               rows={5}
               className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none transition resize-none"
             ></textarea>
