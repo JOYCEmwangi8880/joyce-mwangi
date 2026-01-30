@@ -43,9 +43,7 @@ export default function Hero() {
               <h1 className="text-6xl md:text-7xl font-bold text-white mb-4">
                 Joyce Mwangi
               </h1>
-              {/* <p className="text-lg text-slate-300 mb-3">
-                Web Developer, Digital Marketer & AI Innovator
-              </p> */}
+              
               <p className="text-slate-400 text-base leading-relaxed">
                 Crafting solutions at the intersection of technology and strategy
                 <br></br>:{" "}
@@ -63,19 +61,21 @@ export default function Hero() {
     </p>
 
             <div className="flex gap-4 mb-8">
-              <a href="mailto:joycewanguim2020@gmail.com">
-                <button className="px-6 py-3 bg-cyan-500 text-slate-950 font-medium rounded hover:bg-cyan-400 transition">
-                  Get in Touch
-                </button>
-              </a>
               <a
+                  href="mailto:joycewanguim2020@gmail.com"
+                  className="text-cyan-400 text-sm font-medium hover:text-cyan-300 transition"
+                >
+                  Get in touch →
+                </a>
+
+              {/* <a
                 href="https://docs.google.com/document/d/11TIeK6owGQXtHVsnltIbXQ7Wdpv4hOQp/export?format=pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 border border-cyan-500 text-cyan-400 font-medium rounded hover:bg-cyan-500/10 transition"
               >
                 Download CV
-              </a>
+              </a> */}
             </div>
 
             {/* Social Links - Mobile Visible */}
