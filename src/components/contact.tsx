@@ -1,12 +1,65 @@
 "use client"
 
-import React from "react"
-
+import React, { useState } from "react"
 import { Mail, Phone, MapPin } from "lucide-react"
 
 export default function Contact() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState("")
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setLoading(true)
+    setMessage("")
+
+    try {
+      console.log("[v0] Submitting form with data:", formData)
+      
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      console.log("[v0] Response status:", response.status)
+      const responseData = await response.json()
+      console.log("[v0] Response data:", responseData)
+
+      if (response.ok) {
+        setMessage("Message sent successfully! I'll get back to you soon.")
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        })
+        setTimeout(() => setMessage(""), 5000)
+      } else {
+        setMessage(responseData.error || "Failed to send message. Please try again.")
+      }
+    } catch (error) {
+      console.error("[v0] Form submission error:", error)
+      setMessage("An error occurred. Please check your connection and try again.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -64,12 +117,20 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 gap-4">
               <input
                 type="text"
+                name="name"
                 placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
                 className="px-4 py-3 bg-slate-800/50 border border-slate-700 rounded text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none transition"
               />
               <input
                 type="email"
-                placeholder="Email Address"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
                 className="px-4 py-3 bg-slate-800/50 border border-slate-700 rounded text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none transition"
               />
             </div>
@@ -77,27 +138,45 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 gap-4">
               <input
                 type="tel"
-                placeholder="Phone Number"
+                name="phone"
+                placeholder="Your Phone"
+                value={formData.phone}
+                onChange={handleChange}
                 className="px-4 py-3 bg-slate-800/50 border border-slate-700 rounded text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none transition"
               />
               <input
                 type="text"
-                placeholder="Subject "
+                name="subject"
+                placeholder="Your Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
                 className="px-4 py-3 bg-slate-800/50 border border-slate-700 rounded text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none transition"
               />
             </div>
 
             <textarea
-              placeholder="Write your message "
+              name="message"
+              placeholder="Start writing message here"
+              value={formData.message}
+              onChange={handleChange}
+              required
               rows={5}
               className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none transition resize-none"
             ></textarea>
 
+            {message && (
+              <div className={`p-3 rounded text-sm ${message.includes("successfully") ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
+                {message}
+              </div>
+            )}
+
             <button
               type="submit"
-              className="px-8 py-3 bg-cyan-500 text-slate-950 font-semibold rounded hover:bg-cyan-400 transition hover:scale-105 animate-bounce-in"
+              disabled={loading}
+              className="px-8 py-3 bg-cyan-500 text-slate-950 font-semibold rounded hover:bg-cyan-400 transition disabled:opacity-50 disabled:cursor-not-allowed w-full"
             >
-              SUBMIT NOW
+              {loading ? "Sending..." : "SUBMIT NOW"}
             </button>
           </form>
         </div>
