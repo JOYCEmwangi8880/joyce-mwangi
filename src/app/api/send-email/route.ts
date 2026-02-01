@@ -5,20 +5,17 @@ export async function POST(request: Request) {
     const { name, email, phone, subject, message } = await request.json()
 
     if (!name || !email || !subject || !message) {
-      console.error('[v0] Missing required fields:', { name, email, subject, message })
       return Response.json(
-        { error: 'Missing required fields' },
+        { error: 'All required fields must be filled' },
         { status: 400 }
       )
     }
 
-    const emailUser = process.env.EMAIL_USER
-    const emailPassword = process.env.EMAIL_PASSWORD
+    const { EMAIL_USER, EMAIL_PASSWORD } = process.env
 
-    if (!emailUser || !emailPassword) {
-      console.error('[v0] Missing email credentials in environment variables')
+    if (!EMAIL_USER || !EMAIL_PASSWORD) {
       return Response.json(
-        { error: 'Server configuration error' },
+        { error: 'Email service not configured' },
         { status: 500 }
       )
     }
@@ -26,41 +23,35 @@ export async function POST(request: Request) {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: emailUser,
-        pass: emailPassword,
+        user: EMAIL_USER,
+        pass: EMAIL_PASSWORD,
       },
     })
 
-    console.log('[v0] Sending email from:', emailUser, 'to:', emailUser)
-
-    const mailResult = await transporter.sendMail({
-      from: emailUser,
-      to: emailUser,
+    await transporter.sendMail({
+      from: EMAIL_USER,
+      to: EMAIL_USER,
       replyTo: email,
-      subject: `New Contact: ${subject}`,
+      subject: `New contact message: ${subject}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #06b6d4;">New Message from ${name}</h2>
-          <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto;">
+          <h2>New message from ${name}</h2>
+
+          <p><strong>Email:</strong> ${email}</p>
           ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
           <p><strong>Subject:</strong> ${subject}</p>
-          <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
-          <p><strong>Message:</strong></p>
-          <p style="white-space: pre-wrap; color: #333;">${message.replace(/\n/g, '<br>')}</p>
+
+          <hr />
+
+          <p>${message.replace(/\n/g, '<br />')}</p>
         </div>
       `,
     })
 
-    console.log('[v0] Email sent successfully:', mailResult.messageId)
-
+    return Response.json({ success: true }, { status: 200 })
+  } catch (err) {
     return Response.json(
-      { success: true, message: 'Email sent successfully' },
-      { status: 200 }
-    )
-  } catch (error) {
-    console.error('[v0] Email send error:', error)
-    return Response.json(
-      { error: 'Failed to send email', details: String(error) },
+      { error: 'Something went wrong while sending the email' },
       { status: 500 }
     )
   }
