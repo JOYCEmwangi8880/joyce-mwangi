@@ -6,52 +6,55 @@ export async function POST(request: Request) {
 
     if (!name || !email || !subject || !message) {
       return Response.json(
-        { error: 'All required fields must be filled' },
+        { error: 'All fields are required' },
         { status: 400 }
       )
     }
 
-    const { EMAIL_USER, EMAIL_PASSWORD } = process.env
+    const emailUser = process.env.EMAIL_USER
+    const emailPassword = process.env.EMAIL_PASSWORD
 
-    if (!EMAIL_USER || !EMAIL_PASSWORD) {
+    if (!emailUser || !emailPassword) {
       return Response.json(
-        { error: 'Email service not configured' },
+        { error: 'Email service not configured on server' },
         { status: 500 }
       )
     }
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
       auth: {
-        user: EMAIL_USER,
-        pass: EMAIL_PASSWORD,
+        user: emailUser,
+        pass: emailPassword,
       },
     })
 
     await transporter.sendMail({
-      from: EMAIL_USER,
-      to: EMAIL_USER,
+      from: emailUser,
+      to: emailUser,
       replyTo: email,
-      subject: `New contact message: ${subject}`,
+      subject: `New message from ${name}: ${subject}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto;">
-          <h2>New message from ${name}</h2>
-
+        <div style="font-family: Arial, sans-serif; max-width: 600px;">
+          <h2>New Message from ${name}</h2>
           <p><strong>Email:</strong> ${email}</p>
           ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
           <p><strong>Subject:</strong> ${subject}</p>
-
-          <hr />
-
-          <p>${message.replace(/\n/g, '<br />')}</p>
+          <hr style="margin: 20px 0;" />
+          <p>${message.replace(/\n/g, '<br>')}</p>
         </div>
       `,
     })
 
-    return Response.json({ success: true }, { status: 200 })
-  } catch (err) {
     return Response.json(
-      { error: 'Something went wrong while sending the email' },
+      { success: true, message: 'Email sent successfully' },
+      { status: 200 }
+    )
+  } catch (error) {
+    return Response.json(
+      { error: 'Failed to send email. Please try again later.' },
       { status: 500 }
     )
   }
