@@ -14,9 +14,13 @@ export async function POST(request: Request) {
     const emailUser = process.env.EMAIL_USER
     const emailPassword = process.env.EMAIL_PASSWORD
 
+    console.log("Checking env vars - USER:", emailUser ? "exists" : "MISSING")
+    console.log("Checking env vars - PASS:", emailPassword ? "exists" : "MISSING")
+
     if (!emailUser || !emailPassword) {
+      console.log("Environment variables not set properly")
       return Response.json(
-        { error: 'Email service not configured on server' },
+        { error: 'Email service not configured on server. Check environment variables.' },
         { status: 500 }
       )
     }
@@ -53,6 +57,7 @@ export async function POST(request: Request) {
       { status: 200 }
     )
   } catch (error) {
+    console.log("Email send error:", error)
     return Response.json(
       { error: 'Failed to send email. Please try again later.' },
       { status: 500 }
