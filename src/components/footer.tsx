@@ -36,9 +36,9 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#portfolio" className="text-slate-400 hover:text-cyan-400 transition text-sm">
+                {/* <a href="#portfolio" className="text-slate-400 hover:text-cyan-400 transition text-sm">
                   Portfolio
-                </a>
+                </a> */}
               </li>
             </ul>
           </div>
