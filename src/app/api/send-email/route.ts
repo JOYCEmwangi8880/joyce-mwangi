@@ -1,41 +1,36 @@
 import nodemailer from 'nodemailer'
 
+const emailUser = process.env.EMAIL_USER
+const emailPassword = process.env.EMAIL_PASSWORD
+
 export async function POST(request: Request) {
   try {
-    const { name, email, phone, subject, message } = await request.json()
-
-    if (!name || !email || !subject || !message) {
-      return Response.json(
-        { error: 'All fields are required' },
-        { status: 400 }
-      )
-    }
-
-    const emailUser = process.env.EMAIL_USER
-    const emailPassword = process.env.EMAIL_PASSWORD
-
-    console.log("Checking env vars - USER:", emailUser ? "exists" : "MISSING")
-    console.log("Checking env vars - PASS:", emailPassword ? "exists" : "MISSING")
-
     if (!emailUser || !emailPassword) {
-      console.log("Environment variables not set properly")
       return Response.json(
-        { error: 'Email service not configured on server. Check environment variables.' },
+        { error: 'Email service not configured. Please check environment variables.' },
         { status: 500 }
       )
     }
 
+    const body = await request.json()
+    const { name, email, phone, subject, message } = body
+
+    if (!name || !email || !subject || !message) {
+      return Response.json(
+        { error: 'Please fill in all required fields' },
+        { status: 400 }
+      )
+    }
+
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
+      service: 'gmail',
       auth: {
         user: emailUser,
         pass: emailPassword,
       },
     })
 
-    await transporter.sendMail({
+    const mailOptions = {
       from: emailUser,
       to: emailUser,
       replyTo: email,
@@ -50,16 +45,18 @@ export async function POST(request: Request) {
           <p>${message.replace(/\n/g, '<br>')}</p>
         </div>
       `,
-    })
+    }
+
+    await transporter.sendMail(mailOptions)
 
     return Response.json(
       { success: true, message: 'Email sent successfully' },
       { status: 200 }
     )
   } catch (error) {
-    console.log("Email send error:", error)
+    console.error('Email error:', error)
     return Response.json(
-      { error: 'Failed to send email. Please try again later.' },
+      { error: 'Failed to send email. Please try again.' },
       { status: 500 }
     )
   }
