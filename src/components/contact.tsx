@@ -2,6 +2,7 @@
 
 import React, { useState } from "react"
 import { Mail, Phone, MapPin } from "lucide-react"
+import {sendEmail} from "@/lib/mail"
 
 export default function Contact() {
   const [loading, setLoading] = useState(false)
@@ -27,30 +28,16 @@ export default function Contact() {
     setMessage("")
 
     try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
+  const result = await sendEmail(new FormData(e.currentTarget)) 
 
-      const responseData = await response.json()
-
-      if (response.ok) {
-        setMessage("Message sent successfully! I'll get back to you soon.")
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          subject: "",
-          message: "",
-        })
-        setTimeout(() => setMessage(""), 5000)
-      } else {
-        setMessage(responseData.error || "Failed to send message. Please try again.")
-      }
-    } catch (error) {
+  if (result.success) {
+    setMessage("Message sent successfully! I'll get back to you soon.")
+    e.currentTarget.reset()
+    setTimeout(() => setMessage(""), 5000)
+  } else {
+    setMessage("Failed to send message. Please try again.")
+  }
+}  catch (error) {
       setMessage("An error occurred. Please check your connection and try again.")
     } finally {
       setLoading(false)

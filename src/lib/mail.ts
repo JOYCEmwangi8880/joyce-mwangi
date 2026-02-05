@@ -1,0 +1,42 @@
+'use server'
+
+import nodemailer from 'nodemailer'
+
+export async function sendEmail(formData: FormData) {
+  const name = formData.get('name') as string
+  const email = formData.get('email') as string
+  const phone = formData.get('phone') as string
+  const subject = formData.get('subject') as string
+  const message = formData.get('message') as string
+
+  const emailUser = process.env.EMAIL_USER
+  const emailPassword = process.env.EMAIL_PASSWORD
+
+  if (!emailUser || !emailPassword) {
+    console.log("Missing EMAIL_USER or EMAIL_PASSWORD")
+    return { success: false, error: "Email service not configured" }
+  }
+
+  try {
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: emailUser,
+        pass: emailPassword,
+      },
+    })
+
+    await transporter.sendMail({
+      from: emailUser,
+      to: emailUser,
+      replyTo: email,
+      subject: `New message from ${name}: ${subject}`,
+      html: `<p>${message}</p>`,
+    })
+
+    return { success: true }
+  } catch (err) {
+    console.error("Failed to send email:", err)
+    return { success: false, error: "Failed to send email" }
+  }
+}
