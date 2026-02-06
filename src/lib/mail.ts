@@ -13,7 +13,7 @@ export async function sendEmail(formData: FormData) {
   const emailPassword = process.env.EMAIL_PASSWORD
 
   if (!emailUser || !emailPassword) {
-    console.log("Missing EMAIL_USER or EMAIL_PASSWORD")
+    // console.log("Missing EMAIL_USER or EMAIL_PASSWORD")
     return { success: false, error: "Email service not configured" }
   }
 
@@ -30,8 +30,15 @@ export async function sendEmail(formData: FormData) {
       from: emailUser,
       to: emailUser,
       replyTo: email,
-      subject: `New message from ${name}: ${subject}`,
-      html: `<p>${message}</p>`,
+       subject: 'New inquiry from portfolio',
+      html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
+        <p><strong>Subject:</strong> ${subject}</p>
+        <hr/>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `,
     })
 
     return { success: true }
