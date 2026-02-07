@@ -43,7 +43,8 @@ export async function sendEmail(formData: FormData) {
 
     return { success: true }
   } catch (err) {
-    console.error("Failed to send email:", err)
-    return { success: false, error: "Failed to send email" }
+    const errorMessage = err instanceof Error ? err.message : String(err)
+    console.error("Failed to send email:", errorMessage)
+    return { success: false, error: errorMessage }
   }
 }
