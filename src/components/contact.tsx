@@ -26,19 +26,21 @@ export default function Contact() {
     e.preventDefault()
     setLoading(true)
     setMessage("")
+    const form = e.currentTarget
 
     try {
-  const result = await sendEmail(new FormData(e.currentTarget)) 
+      const result = await sendEmail(new FormData(form))
 
-  if (result.success) {
-    setMessage("Message sent successfully! I'll get back to you soon.")
-    e.currentTarget.reset()
-    setTimeout(() => setMessage(""), 5000)
-  } else {
-    setMessage("Failed to send message. Please try again.")
-  }
-}  catch (error) {
-      setMessage("An error occurred. Please check your connection and try again.")
+      if (result.success) {
+        setMessage("Message sent successfully! I'll get back to you soon.")
+        form.reset()
+        setTimeout(() => setMessage(""), 5000)
+      } else {
+        setMessage(result.error || "Failed to send message. Please try again.")
+      }
+    } catch (error) {
+      console.error("Form submission error:", error)
+      setMessage("An error occurred. Please try again.")
     } finally {
       setLoading(false)
     }
