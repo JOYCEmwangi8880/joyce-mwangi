@@ -42,6 +42,12 @@ export default function About() {
             <p className="text-slate-400 text-base leading-relaxed">
               My approach combines modern development practices with marketing excellence to help brands thrive digitally. I focus on transforming ideas into tangible solutions that drive business growth and customer engagement.
             </p>
+
+            <div className="pt-4">
+              <a href="#contact" className="text-cyan-400 font-medium hover:text-cyan-300 transition">
+                Let's collaborate →
+              </a>
+            </div>
           </div>
         </div>
       </div>
