@@ -22,29 +22,37 @@ export default function Contact() {
     })
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setLoading(true)
-    setMessage("")
-    const form = e.currentTarget
+ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault()
+  setLoading(true)
+  setMessage("")
 
-    try {
-      const result = await sendEmail(new FormData(form))
+  try {
+    const result = await sendEmail(new FormData(e.currentTarget))
 
-      if (result.success) {
-        setMessage("Message sent successfully! I'll get back to you soon.")
-        form.reset()
-        setTimeout(() => setMessage(""), 5000)
-      } else {
-        setMessage(result.error || "Failed to send message. Please try again.")
-      }
-    } catch (error) {
-      console.error("Form submission error:", error)
-      setMessage("An error occurred. Please try again.")
-    } finally {
-      setLoading(false)
+    if (result.success) {
+      setMessage("Message sent successfully! I'll get back to you soon.")
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      })
+
+      setTimeout(() => setMessage(""), 5000)
+    } else {
+      setMessage(result.error || "Failed to send message. Please try again.")
     }
+  } catch (error) {
+    console.error("Form submission error:", error)
+    setMessage("An error occurred. Please try again.")
+  } finally {
+    setLoading(false)
   }
+}
+
 
   return (
     <section id="contact" className="py-20 px-4 bg-slate-950">
