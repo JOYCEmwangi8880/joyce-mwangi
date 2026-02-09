@@ -52,13 +52,13 @@ export default function Hero() {
               </p>
             </div>
 
-             <p className="text-slate-400 text-base leading-relaxed">
+             {/* <p className="text-slate-400 text-base leading-relaxed">
       I create practical digital solutions by combining technology, creativity, and strategy.
     </p>
 
     <p className="text-slate-400 mb-8 leading-relaxed">
       My work focuses on building reliable, user-centered products that solve real problems.
-    </p>
+    </p> */}
 
             <div className="flex gap-4 mb-8">
               <a
