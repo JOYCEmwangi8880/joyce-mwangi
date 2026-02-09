@@ -35,14 +35,22 @@ export default function About() {
 
           {/* Content */}
           <div className="space-y-6">
-            <p className="text-slate-400 text-base leading-relaxed">
+            {/* <p className="text-slate-400 text-base leading-relaxed">
               I blend technology with strategic digital marketing to create impactful solutions. With expertise in full-stack web development, AI, and machine learning, I build responsive applications and data-driven strategies that deliver measurable results.
             </p>
 
             <p className="text-slate-400 text-base leading-relaxed">
               My approach combines modern development practices with marketing excellence to help brands thrive digitally. I focus on transforming ideas into tangible solutions that drive business growth and customer engagement.
+            </p> */}
+
+
+            <p className="text-slate-400 text-base leading-relaxed">
+              I create practical digital solutions by combining technology, creativity, and strategy.
             </p>
 
+            <p className="text-slate-400 mb-8 leading-relaxed">
+              My work focuses on building reliable, user-centered products that solve real problems.
+            </p>
             <div className="pt-4">
               <a href="#contact" className="text-cyan-400 font-medium hover:text-cyan-300 transition">
                 Let's collaborate →
