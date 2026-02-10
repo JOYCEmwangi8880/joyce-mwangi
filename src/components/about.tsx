@@ -51,9 +51,12 @@ export default function About() {
             <p className="text-slate-400 mb-8 leading-relaxed">
               My work focuses on building reliable, user-centered products that solve real problems.
             </p>
-            <div className="pt-4">
+            <div className="pt-4 flex flex-wrap gap-4 items-center">
               <a href="#contact" className="text-cyan-400 font-medium hover:text-cyan-300 transition">
                 Let's collaborate →
+              </a>
+              <a href="/resume" className="px-3 py-2 bg-cyan-500 text-slate-950 font-medium rounded hover:bg-cyan-400 transition">
+                Download Resume
               </a>
             </div>
           </div>
