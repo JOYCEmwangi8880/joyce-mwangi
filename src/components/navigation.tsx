@@ -36,6 +36,9 @@ export default function Navigation() {
             <a href="#contact" className="text-slate-400 hover:text-cyan-400 transition text-sm">
               Contact
             </a>
+            <a href="#portfolio" className="text-slate-400 hover:text-cyan-400 transition text-sm">
+              Portfolio
+            </a>
           </div>
 
           {/* Download CV & Mobile Menu  */}
@@ -89,6 +92,13 @@ export default function Navigation() {
               onClick={() => setIsOpen(false)}
             >
               Contact
+            </a>
+            <a
+              href="#portfolio"
+              className="block py-2 text-slate-400 hover:text-cyan-400 text-sm"
+              onClick={() => setIsOpen(false)}
+            >
+              Portfolio
             </a>
           </div>
         )}
