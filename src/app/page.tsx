@@ -7,6 +7,7 @@ import Service from "@/components/service"
 import Contact from "@/components/contact"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
+import ScrollToTop from "@/components/ScrollToTop"
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   )
 }
