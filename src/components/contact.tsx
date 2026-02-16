@@ -106,6 +106,16 @@ export default function Contact() {
 
           {/* Right - Contact Form */}
           <form onSubmit={handleSubmit} className="space-y-4 animate-slide-in-right">
+            {/* Honeypot field (hidden from users) */}
+            <input
+              type="text"
+              name="website"
+              style={{ display: "none" }}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
+
             <div className="grid md:grid-cols-2 gap-4">
               <input
                 type="text"
