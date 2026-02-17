@@ -3,6 +3,12 @@
 import nodemailer from 'nodemailer'
 
 export async function sendEmail(formData: FormData) {
+  // Honeypot spam check
+  const honeypot = formData.get('website') as string
+  if (honeypot) {
+    return { success: false, error: "Form submission blocked" }
+  }
+
   const name = formData.get('name') as string
   const email = formData.get('email') as string
   const phone = formData.get('phone') as string
