@@ -97,8 +97,8 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-white font-bold text-lg mb-2">Email</h3>
-                <a href="mailto:joycewanguim2020@gmail.com" className="text-slate-400 hover:text-cyan-400 transition">
-                  joycewanguim2020@gmail.com
+                <a href="mailto:joyce04mwangi@gmail.com" className="text-slate-400 hover:text-cyan-400 transition">
+                  joyce04mwangi@gmail.com
                 </a>
               </div>
             </div>
