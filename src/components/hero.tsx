@@ -62,7 +62,7 @@ export default function Hero() {
 
             <div className="flex gap-4 mb-8">
               <a
-                  href="mailto:joycewanguim2020@gmail.com"
+                  href="mailto:joyce04mwangi@gmail.com"
                   className="text-cyan-400 text-sm font-medium hover:text-cyan-300 transition"
                 >
                   Get in touch →
@@ -109,7 +109,7 @@ export default function Hero() {
 
               {/* CV Download Circle */}
               <a
-                href="https://docs.google.com/document/d/11TIeK6owGQXtHVsnltIbXQ7Wdpv4hOQp/export?format=pdf"
+                href="https://docs.google.com/document/d/11TIeK6owGQXtHVsnltIbXQ7Wdpv4hOQp/edit?usp=sharing&ouid=105950731606047004479&rtpof=true&sd=true"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute -bottom-6 -right-6 w-28 h-28 rounded-full bg-cyan-500 shadow-xl flex items-center justify-center hover:shadow-2xl transition group cursor-pointer"
