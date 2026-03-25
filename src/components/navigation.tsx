@@ -44,7 +44,7 @@ export default function Navigation() {
           {/* Download CV & Mobile Menu  */}
           <div className="flex items-center gap-4">
              <a
-    href="https://docs.google.com/document/d/11TIeK6owGQXtHVsnltIbXQ7Wdpv4hOQp/edit?usp=sharing"
+    href="https://docs.google.com/document/d/11TIeK6owGQXtHVsnltIbXQ7Wdpv4hOQp/edit?usp=sharing&ouid=105950731606047004479&rtpof=true&sd=true"
     target="_blank"
     rel="noopener noreferrer"
     className="hidden sm:flex items-center gap-2 px-4 py-2 bg-cyan-500 text-slate-950 font-semibold rounded text-sm hover:bg-cyan-400 transition"
