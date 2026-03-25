@@ -100,6 +100,15 @@ export default function Navigation() {
             >
               Portfolio
             </a>
+
+            <a
+              href="#projects"
+              className="block py-2 text-slate-400 hover:text-cyan-400 text-sm"
+              onClick={() => setIsOpen(false)}
+            >
+              Projects
+            </a>
+            
           </div>
         )}
       </div>
