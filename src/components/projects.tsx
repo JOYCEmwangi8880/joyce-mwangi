@@ -48,36 +48,7 @@ export default function Projects() {
       tags: ["Web Design", "Real Estate", "Development"],
       link: "https://www.ap-rem.com/",
     },
-    {
-      id: 3,
-      category: "Content Writing",
-      title: "Daily Yield Writers",
-      shortDesc: "Content creation and writing services",
-      image: "/images/portfolio-3.jpg",
-      fullDesc:
-        "A professional content writing agency website showcasing expertise in SEO-optimized content, blog writing, and copywriting. Features portfolio of work, services offered, and client testimonials.",
-      projectType: "Web Design",
-      client: "Daily Yield Writers",
-      duration: "3 Weeks",
-      task: "Web Design, Content Setup",
-      tags: ["Content", "Writing", "Web Design"],
-      link: "http://dailyyieldwriters.com/",
-    },
-    {
-      id: 4,
-      category: "Content Writing",
-      title: "Inkwave Writers",
-      shortDesc: "Creative writing and literary services",
-      image: "/images/portfolio-4.jpg",
-      fullDesc:
-        "A creative writing platform featuring various literary services including ghost writing, editing, and publishing assistance. Showcases author portfolio and industry expertise.",
-      projectType: "Web Design",
-      client: "Inkwave Writers",
-      duration: "3 Weeks",
-      task: "Web Design, Frontend Development",
-      tags: ["Writing", "Creative", "Web Design"],
-      link: "https://www.inkwavewriters.com/",
-    },
+   
   ]
 
   return (

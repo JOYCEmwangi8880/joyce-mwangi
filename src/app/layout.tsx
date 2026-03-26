@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Joyce Mwangi",
   description:
     "Creative professional specializing in digital marketing and web development. Building scalable solutions and compelling digital experiences.",
-  generator: "v0.app",
+  
   icons: {
     icon: [
       {

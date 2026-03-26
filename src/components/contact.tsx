@@ -183,11 +183,11 @@ export default function Contact() {
           </form>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 text-center mt-16">
+        {/* <div className="pt-8 border-t border-slate-800 text-center mt-16">
           <p className="text-slate-500 text-sm">
             © 2026 Joyce Mwangi. All rights reserved.
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   )

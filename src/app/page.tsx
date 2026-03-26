@@ -21,8 +21,9 @@ export default function Home() {
         <Service />
         <Skills />
         <Portfolio />
-        <Contact />
         <Projects />
+        <Contact />
+        
       </main>
       <Footer />
       <ScrollToTop />
