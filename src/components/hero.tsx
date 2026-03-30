@@ -99,9 +99,9 @@ export default function Hero() {
           <div className="flex gap-12 items-center justify-center">
             {/* Image and CV Circle */}
             <div className="relative w-full max-w-md">
-              <div className="aspect-square rounded-lg overflow-hidden bg-slate-800 border border-slate-700 shadow-2xl">
+              <div className="aspect-square rounded-lg overflow-hidden ">
                 <img
-                  src="/images/profile.jpeg"
+                  src="/images/profile.png"
                   alt="Joyce Mwangi"
                   className="w-full h-full object-cover"
                 />
