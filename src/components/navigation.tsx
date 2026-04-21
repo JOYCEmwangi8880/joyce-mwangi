@@ -14,7 +14,7 @@ export default function Navigation() {
           <Link href="/" className="flex items-center gap-2">
             <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-lg flex items-center justify-center">
               <img
-      src="/images/logo.png"
+      src="/images/logo-bg.png"
       alt="Joyce logo"
       className="w-full h-full object-cover"
     />
