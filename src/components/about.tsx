@@ -11,8 +11,8 @@ export default function About() {
         {/* About Grid - Image and Content */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
           {/* Images */}
-          <div className="flex gap-4 relative">
-            <div className="flex-1 space-y-4">
+          <div className="flex gap-4 relative ">
+            <div className="flex-1 space-y-4 ">
               <img
                 src="images/img.jpg"
                 alt="About 1"
