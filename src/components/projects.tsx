@@ -41,16 +41,15 @@ export default function Projects() {
       "A modern business website developed to present company services and digital solutions. The platform focuses on clear navigation, responsive design, and a professional layout.",
     link: "https://atibule.com/",
   },
-   {
-    id: 4,
-    title: "AP-REM",
-    shortDesc: "Real estate and property management platform",
-    image: "/images/ap-rem.jpg",
-    fullDesc:
-      "A comprehensive real estate platform showcasing properties and providing property management solutions. The platform allows users to browse property listings, view detailed information, and send inquiries.",
-    link: "https://www.ap-rem.com/",
-  },
-
+{
+  id: 4,
+  title: "Afriora",
+  shortDesc: "Premium real estate and property discovery platform",
+  image: "/images/kenya.jpg",
+  fullDesc:
+    "A comprehensive real estate platform showcasing premium properties across Kenya. Users can browse listings, explore neighborhoods, view detailed property information, and connect directly with agents.",
+  link: "https://afriora-k.vercel.app/",
+},
    
   ]
 
