@@ -21,7 +21,8 @@ export default function Projects() {
     image: "/images/logo.jpeg",
     fullDesc:
       "A technology-focused platform aimed at supporting developers and tech enthusiasts across Africa by highlighting initiatives, learning opportunities, and collaboration within the tech ecosystem.",
-    link: "https://codeon.africa/",
+    link: "https://codeonafrica.com/",
+
   },
    {
     id: 2,
