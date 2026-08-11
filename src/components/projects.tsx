@@ -51,6 +51,24 @@ export default function Projects() {
     "A comprehensive real estate platform showcasing premium properties across Kenya. Users can browse listings, explore neighborhoods, view detailed property information, and connect directly with agents.",
   link: "https://afriora-k.vercel.app/",
 },
+{
+  id: 5,
+  title: "ShareSpot",
+  shortDesc: "Peer-to-peer rental platform for everyday items",
+  image: "/images/share-spot.jpg",
+  fullDesc:
+    "A peer-to-peer rental platform that connects people who need items with others who have equipment sitting unused at home. Users can rent cameras, drills, gaming consoles, tents, PA systems, party furniture, and more for a few days while earning from items they already own.",
+  link: "https://share-spot.vercel.app/",
+},
+{
+  id: 6,
+  title: "Zero to One",
+  shortDesc: "Business idea planning and launch management platform",
+  image: "/images/ZerotoOne.jpg",
+  fullDesc:
+    "A focused business planning platform that helps entrepreneurs turn ideas into launched businesses. Users get a personalized roadmap with checklists, budgeting tools, branding guidance, marketing planning, and progress tracking — all in one workspace.",
+  link: "https://zero-to-one-swart-nine.vercel.app/",
+},
    
   ]
 
