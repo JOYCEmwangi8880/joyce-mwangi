@@ -53,8 +53,8 @@ export default function Projects() {
 },
 {
   id: 5,
-  title: "ShareSpot",
-  shortDesc: "Peer-to-peer rental platform for everyday items",
+  title: "Share-Spot",
+  shortDesc: "Platform for discovering and renting everyday items",
   image: "/images/share-spot.jpg",
   fullDesc:
     "A peer-to-peer rental platform that connects people who need items with others who have equipment sitting unused at home. Users can rent cameras, drills, gaming consoles, tents, PA systems, party furniture, and more for a few days while earning from items they already own.",
@@ -62,7 +62,7 @@ export default function Projects() {
 },
 {
   id: 6,
-  title: "Zero to One",
+  title: "ZerotoOne",
   shortDesc: "Business idea planning and launch management platform",
   image: "/images/ZerotoOne.jpg",
   fullDesc:
